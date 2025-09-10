@@ -1,0 +1,7 @@
+dataingestion:
+  test_size : 0.2
+
+model building:
+  'max_depth' : None 
+  'min_samples_leaf' : 1
+  'min_samples_split': 2

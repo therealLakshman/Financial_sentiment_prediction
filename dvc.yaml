@@ -1,0 +1,9 @@
+stages:
+  dataingestion:
+    cmd: /root/mlops_projects/FinancialSentiment_prediction/fin_ops/bin/python src/data/make_dataset.py
+    deps:
+      - Datasets/Financial_data.csv
+    params:
+      - dataingestion.test_size
+    outs:
+      - src/datasets/raw
