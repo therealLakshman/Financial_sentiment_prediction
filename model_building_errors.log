@@ -1,0 +1,16 @@
+2025-09-10 12:58:42,342 - model_building - ERROR - Error during bow transformation: too many values to unpack (expected 2)
+2025-09-10 12:58:42,342 - model_building - ERROR - Failed to complete the feature engineering and model building process: too many values to unpack (expected 2)
+2025-09-10 13:08:15,572 - model_building - ERROR - Error during bow transformation: too many values to unpack (expected 2)
+2025-09-10 13:08:15,579 - model_building - ERROR - Failed to complete the feature engineering and model building process: too many values to unpack (expected 2)
+2025-09-10 13:12:59,119 - model_building - ERROR - Error during bow transformation: too many values to unpack (expected 2)
+2025-09-10 13:12:59,119 - model_building - ERROR - Failed to complete the feature engineering and model building process: too many values to unpack (expected 2)
+2025-09-10 13:14:48,102 - model_building - ERROR - Error during bow transformation: too many values to unpack (expected 2)
+2025-09-10 13:14:48,103 - model_building - ERROR - Failed to complete the feature engineering and model building process: too many values to unpack (expected 2)
+2025-09-10 13:33:33,815 - model_building - ERROR - Error during bow transformation: too many values to unpack (expected 2)
+2025-09-10 13:33:33,815 - model_building - ERROR - Failed to complete the feature engineering and model building process: too many values to unpack (expected 2)
+2025-09-10 13:34:11,021 - model_building - ERROR - Error during bow transformation: too many values to unpack (expected 2)
+2025-09-10 13:34:11,021 - model_building - ERROR - Failed to complete the feature engineering and model building process: too many values to unpack (expected 2)
+2025-09-10 13:37:08,221 - model_building - ERROR - Error during bow transformation: The 'ngram_range' parameter of CountVectorizer must be an instance of 'tuple'. Got '(1,2)' instead.
+2025-09-10 13:37:08,222 - model_building - ERROR - Failed to complete the feature engineering and model building process: The 'ngram_range' parameter of CountVectorizer must be an instance of 'tuple'. Got '(1,2)' instead.
+2025-09-10 13:38:54,098 - model_building - ERROR - Error during Decision Tree model training: The 'max_depth' parameter of DecisionTreeClassifier must be an int in the range [1, inf) or None. Got 'None' instead.
+2025-09-10 13:38:54,098 - model_building - ERROR - Failed to complete the feature engineering and model building process: The 'max_depth' parameter of DecisionTreeClassifier must be an int in the range [1, inf) or None. Got 'None' instead.

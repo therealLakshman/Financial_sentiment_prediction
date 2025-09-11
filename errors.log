@@ -4,3 +4,8 @@
 2025-09-10 07:37:41,238 - data_ingestion - ERROR - Failed to complete the data ingestion process: 'data_ingestion'
 2025-09-10 07:38:31,754 - data_ingestion - ERROR - Failed to complete the data ingestion process: 'data_ingestion'
 2025-09-10 07:39:16,892 - data_ingestion - ERROR - Failed to complete the data ingestion process: 'data_ingestion'
+2025-09-10 09:04:25,235 - data_ingestion - ERROR - Failed to complete the data ingestion process: 'data_ingestion'
+2025-09-10 09:08:26,411 - data_ingestion - ERROR - Failed to complete the data ingestion process: 'data_ingestion'
+2025-09-10 09:08:58,632 - data_ingestion - ERROR - Failed to complete the data ingestion process: 'data_ingestion'
+2025-09-10 09:13:01,518 - data_ingestion - ERROR - Missing column in the dataframe: 'clean_comment'
+2025-09-10 09:13:01,519 - data_ingestion - ERROR - Failed to complete the data ingestion process: 'clean_comment'

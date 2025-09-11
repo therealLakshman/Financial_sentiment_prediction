@@ -4,6 +4,46 @@ stages:
     deps:
       - Datasets/Financial_data.csv
     params:
-      - dataingestion.test_size
+      - data_ingestion.test_size
     outs:
       - src/datasets/raw
+  
+  data_preprocessing:
+    cmd: /root/mlops_projects/FinancialSentiment_prediction/fin_ops/bin/python src/data/data_preprocessing.py
+    deps:
+    - src/datasets/raw/train.csv
+    - src/datasets/raw/test.csv
+    - src/data/data_preprocessing.py
+    outs:
+    - src/datasets/interim
+  
+  model_building:
+    cmd: /root/mlops_projects/FinancialSentiment_prediction/fin_ops/bin/python src/model/model_building.py
+    deps:
+    - src/datasets/interim/train_processed.csv
+    - src/model/model_building.py
+    params:
+    - model_building.max_features
+    - model_building.ngram_range
+    - model_building.min_samples_leaf
+    - model_building.min_samples_split
+    outs:
+    - decisiontree_model.pkl
+    - bow_vectorizer.pkl
+
+  model_evaluation:
+    cmd: /root/mlops_projects/FinancialSentiment_prediction/fin_ops/bin/python src/model/model_evaluation.py
+    deps:
+    - decisiontree_model.pkl
+    - bow_vectorizer.pkl
+    - src/datasets/interim/train_processed.csv
+    - src/datasets/interim/test_processed.csv
+    - src/model/model_evaluation.py
+    outs:
+    - experiment_info.json
+
+  model_registration:
+    cmd: /root/mlops_projects/FinancialSentiment_prediction/fin_ops/bin/python src/model/register_model.py
+    deps:
+    - experiment_info.json
+    - src/model/register_model.py

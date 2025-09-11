@@ -60,7 +60,7 @@ def preprocess_data(df: pd.DataFrame) -> pd.DataFrame:
         # Removing duplicates
         df.drop_duplicates(inplace=True)
         # Removing rows with empty strings
-        df = df[df['clean_comment'].str.strip() != '']
+        df = df[df['Sentence'].str.strip() != '']
         
         logger.debug('Data preprocessing completed: Missing values, duplicates, and empty strings removed.')
         return df
@@ -102,9 +102,11 @@ def main():
         
         # Split the data into training and testing sets
         train_data, test_data = train_test_split(final_df, test_size=test_size, random_state=42)
-        
+    
+
         # Save the split datasets and create the raw folder if it doesn't exist
-        save_data(train_data, test_data, data_path=os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../data'))
+        output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../datasets/')
+        save_data(train_data, test_data, data_path=output_dir)
         
     except Exception as e:
         logger.error('Failed to complete the data ingestion process: %s', e)

@@ -1,0 +1,6 @@
+README.md
+setup.py
+financial_sentiment_analysis.egg-info/PKG-INFO
+financial_sentiment_analysis.egg-info/SOURCES.txt
+financial_sentiment_analysis.egg-info/dependency_links.txt
+financial_sentiment_analysis.egg-info/top_level.txt

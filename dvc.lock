@@ -1,0 +1,111 @@
+schema: '2.0'
+stages:
+  dataingestion:
+    cmd: /root/mlops_projects/FinancialSentiment_prediction/fin_ops/bin/python 
+      src/data/make_dataset.py
+    deps:
+    - path: Datasets/Financial_data.csv
+      hash: md5
+      md5: b83c8d02f3235408cf0a3f7b744755d5
+      size: 744500
+    params:
+      params.yaml:
+        data_ingestion.test_size: 0.2
+    outs:
+    - path: src/datasets/raw
+      hash: md5
+      md5: eac238471d63098a2cd42d5235a1e10a.dir
+      size: 673309
+      nfiles: 2
+  data_preprocessing:
+    cmd: /root/mlops_projects/FinancialSentiment_prediction/fin_ops/bin/python 
+      src/data/data_preprocessing.py
+    deps:
+    - path: src/data/data_preprocessing.py
+      hash: md5
+      md5: efd30ea91a4b9dd5366f48d91740f76d
+      size: 3865
+    - path: src/datasets/raw/test.csv
+      hash: md5
+      md5: 7a7e672b42e8bf360a6168fcd211ffc4
+      size: 134342
+    - path: src/datasets/raw/train.csv
+      hash: md5
+      md5: 5b56653f76c920d26012fd3e4234fd1e
+      size: 538967
+    outs:
+    - path: src/datasets/interim
+      hash: md5
+      md5: 64ebb51ac07b88bd72e164aabc8bce23.dir
+      size: 479055
+      nfiles: 2
+  model_building:
+    cmd: /root/mlops_projects/FinancialSentiment_prediction/fin_ops/bin/python 
+      src/model/model_building.py
+    deps:
+    - path: src/datasets/interim/train_processed.csv
+      hash: md5
+      md5: d39945584c7bbfd9adef0fcbb0f1d891
+      size: 383988
+    - path: src/model/model_building.py
+      hash: md5
+      md5: 47e7269249aa3e7c8c0e4c0f7d78df45
+      size: 5121
+    params:
+      params.yaml:
+        model_building.max_features: 3000
+        model_building.min_samples_leaf: 1
+        model_building.min_samples_split: 2
+        model_building.ngram_range:
+        - 1
+        - 2
+    outs:
+    - path: bow_vectorizer.pkl
+      hash: md5
+      md5: 678c33954a3baa721a64922588dbb805
+      size: 91643
+    - path: decisiontree_model.pkl
+      hash: md5
+      md5: 3ad96e23bce7fda1f7b756b4c50dff88
+      size: 62536
+  model_evaluation:
+    cmd: /root/mlops_projects/FinancialSentiment_prediction/fin_ops/bin/python 
+      src/model/model_evaluation.py
+    deps:
+    - path: bow_vectorizer.pkl
+      hash: md5
+      md5: 678c33954a3baa721a64922588dbb805
+      size: 91643
+    - path: decisiontree_model.pkl
+      hash: md5
+      md5: 3ad96e23bce7fda1f7b756b4c50dff88
+      size: 62536
+    - path: src/datasets/interim/test_processed.csv
+      hash: md5
+      md5: 962a6efa47110c158b272b603b98af07
+      size: 95067
+    - path: src/datasets/interim/train_processed.csv
+      hash: md5
+      md5: d39945584c7bbfd9adef0fcbb0f1d891
+      size: 383988
+    - path: src/model/model_evaluation.py
+      hash: md5
+      md5: f8b9330f5d790b16d3c46189dbec73cd
+      size: 7946
+    outs:
+    - path: experiment_info.json
+      hash: md5
+      md5: 1ef123c144140d5e52e214f1f22e8ed2
+      size: 92
+  model_registration:
+    cmd: /root/mlops_projects/FinancialSentiment_prediction/fin_ops/bin/python 
+      src/model/register_model.py
+    deps:
+    - path: experiment_info.json
+      hash: md5
+      md5: 1ef123c144140d5e52e214f1f22e8ed2
+      size: 92
+    - path: src/model/register_model.py
+      hash: md5
+      md5: 893c20a910ae088a109408931315b986
+      size: 3044
