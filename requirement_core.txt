@@ -24,7 +24,9 @@ exceptiongroup==1.3.0
 executing==2.2.1
 fastapi==0.116.1
 filelock==3.19.1
+-e git+https://github.com/therealLakshman/Financial_sentiment_prediction.git@c686e8cbf3e5790c6d38834b402a9c15b891e678#egg=financial_sentiment_analysis
 Flask==3.1.2
+flask-cors==6.0.1
 fonttools==4.59.2
 gdown==5.2.0
 gitdb==4.0.12

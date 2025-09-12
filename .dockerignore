@@ -1,0 +1,14 @@
+.git
+.vscode
+__pycache__
+.dvc
+.dvcignore
+dvc.lock
+dvc.yaml
+Datasets/
+Notebooks/
+yt_chrome_plugin/
+*.egg-info
+*.log
+requirement.txt 
+requirement_dl.txt
