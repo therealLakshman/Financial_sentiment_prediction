@@ -91,6 +91,28 @@ The system is designed with a decoupled frontend and backend architecture, conta
     ├── popup.html
     └── popup.js
 
+.
+├── Dockerfile              # Recipe for building the production Docker image
+├── Flask_app/              # Contains the Flask backend for serving the model
+│   └── app.py
+├── Notebooks/              # Jupyter notebooks for experimentation and analysis
+│   ├── dataIngestion_preprocessing.ipynb
+│   └── ml_models.ipynb
+├── Datasets/               # Raw and processed data
+│   └── Financial_data.csv
+├── src/                    # Source code for the installable Python package
+│   ├── data/
+│   ├── model/
+│   └── __init__.py
+├── yt_chrome_plugin/       # Files for the Chrome extension frontend
+│   ├── Manifest.json
+│   ├── popup.html
+│   └── popup.js
+├── requirements.txt        # Python dependencies for the project
+├── setup.py                # Makes the project an installable package
+├── decisiontree_model.pkl  # The final trained model artifact
+└── bow_vectorizer.pkl      # The final trained vectorizer artifact
+
 ## Local Setup and Installation
 
 To run this project on your local machine:
